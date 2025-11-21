@@ -25,9 +25,12 @@ app.post('/webhook', async (req, res) => {
     const { contact_name, issue_type, system_status } = req.body;
 
     let calculatedPriority = "NORMAL";
-    if (system_status && system_status.includes("Yes") || (system_status == "50")) {
-        calculatedPriority = "URGENT";
-    }
+
+const statusText = String(system_status || ""); 
+
+if (statusText.includes("Yes") || statusText === "50") {
+    calculatedPriority = "URGENT";
+}
 
     const newTicket = new Ticket({
         user: contact_name || "Guest User",
