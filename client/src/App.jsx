@@ -5,7 +5,7 @@ function App() {
   const [tickets, setTickets] = useState([]);
   const [view, setView] = useState('URGENT'); 
 
-  const API_URL = "https://survey-backend-YOURNAME.onrender.com/api/tickets";
+  const API_URL = "https://survey-sparrow-412f.onrender.com/api/tickets";
 
   useEffect(() => {
     fetchData();
